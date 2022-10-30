@@ -904,16 +904,7 @@ void MainController::processBlockCommon(AudioSampleBuffer &buffer, MidiBuffer &m
 	storePlayheadIntoDynamicObject(lastPosInfo);
 	
 	bpmFromHost = lastPosInfo.bpm;
-
-	if (hostIsPlaying != lastPosInfo.isPlaying)
-	{
-		hostIsPlaying = lastPosInfo.isPlaying;
-
-		FX_ONLY(masterEventBuffer.addEvent(HiseEvent(hostIsPlaying ? HiseEvent::Type::NoteOn :
-															 HiseEvent::Type::NoteOff, 
-											 60, 127, 1));)
-
-	}
+	hostIsPlaying = lastPosInfo.isPlaying;
 
 	if (bpmFromHost == 0.0)
 		bpmFromHost = 120.0;
