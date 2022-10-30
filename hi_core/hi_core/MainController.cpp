@@ -903,9 +903,9 @@ void MainController::processBlockCommon(AudioSampleBuffer &buffer, MidiBuffer &m
 
 	storePlayheadIntoDynamicObject(lastPosInfo);
 	
-	bpmFromHost = lastPosInfo.bpm;
 	hostIsPlaying = lastPosInfo.isPlaying;
 
+	bpmFromHost = lastPosInfo.bpm;
 	if (bpmFromHost == 0.0)
 		bpmFromHost = 120.0;
 
